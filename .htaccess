@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\. [OR]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+DirectoryIndex index.php index.html index.htm index2.html
+
+ErrorDocument 403 https://www.ritcct.com/403.html
+ErrorDocument 404 https://www.ritcct.com/404.html
+ErrorDocument 500 https://www.ritcct.com/500.html
